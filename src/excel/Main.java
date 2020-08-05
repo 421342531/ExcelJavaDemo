@@ -65,14 +65,9 @@ public class Main {
                 }
                 
             }
-            
-        
             //row=7 本次排入人天数目
             
             //row=8 开发人员
-            
-  
-            
             //统计项目相关
             //row=2 项目
             if(cell.getColumnIndex()==2&&cell.toString()!=""&&!cell.toString().equals("项目名称")) {
@@ -84,9 +79,7 @@ public class Main {
             	  }
             	 // System.out.println("Cell #" + cell.getColumnIndex()+" "+cell.toString());  
             }
-           
-           
-        }	
+         }	
         index++;
        // System.out.println("项目总数："+sumProject);
 	}
@@ -96,7 +89,7 @@ public class Main {
         while(isList.hasNext()) {
         	System.out.println("项目"+(++indexSum)+"名称:"+isList.next());
         }
-        System.err.println("项目总数:"+list.size());
+        System.err.println("项目总数:"+list.size()); 
         
         //统计每个开发工作量
         System.out.println("============统计每个开发工作量==========");
