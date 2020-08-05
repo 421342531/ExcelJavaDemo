@@ -77,7 +77,7 @@ public class Main {
             //row=2 项目
             if(cell.getColumnIndex()==2&&cell.toString()!=""&&!cell.toString().equals("项目名称")) {
             	  if(list.contains(cell.toString()) ) {
-            		  System.out.println("******重复信息："+"行数:"+row.getRowNum()+" 列数:" + (cell.getColumnIndex()+1)+" "+cell.toString());
+            		  System.err.println("******重复信息："+"行数:"+row.getRowNum()+" 列数:" + (cell.getColumnIndex()+1)+" "+cell.toString());
             	  }else {
             		//  sumProject++;
             		  list.add(cell.toString());
@@ -96,6 +96,7 @@ public class Main {
         while(isList.hasNext()) {
         	System.out.println("项目"+(++indexSum)+"名称:"+isList.next());
         }
+        System.err.println("项目总数:"+list.size());
         
         //统计每个开发工作量
         System.out.println("============统计每个开发工作量==========");
@@ -124,9 +125,9 @@ public class Main {
         while(it.hasNext()){ 
         	Entry<String, Double> entry=it.next();
         	if(entry.getValue()< 20) {
-        		System.out.println(entry.getKey()+" "+Math.round(entry.getValue()));
+        		System.out.println(Math.round(entry.getValue())+" "+entry.getKey());
         	}else {
-        		System.out.println(entry.getKey()+" "+Math.round(entry.getValue()));
+        		System.out.println(Math.round(entry.getValue())+" "+entry.getKey());
         	}
         }
 		/*
