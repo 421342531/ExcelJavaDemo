@@ -18,6 +18,10 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 
+/*用于检查排期会文档
+1、检查是否有重复项目
+2、统计项目总数
+3、统计每个开发的开发量*/
 
 public class Main {
 
