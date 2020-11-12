@@ -17,7 +17,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
-
 /*用于检查排期会文档
 1、检查是否有重复项目
 2、统计项目总数
@@ -28,9 +27,10 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-			
+		///Users/nailao/Desktop/排期会
 	//	String fileName= "/Users/mac/Documents/企业网银排期计划表2020.8-9月-会前v1.xls";
-		String fileName= "/Users/apple/Desktop/企业网银排期计划表2020.8-9月-会后V1.0.xls";
+	///Users/nailao/Desktop/排期会/2020-11-12
+		String fileName= "/Users/nailao/Desktop/排期会/2020-11-12/企业网银排期计划表2020.11-12月-会后版的副本.xls";
 		InputStream input = new FileInputStream(fileName);  
         POIFSFileSystem fs = new POIFSFileSystem(input);  
         HSSFWorkbook wb = new HSSFWorkbook(fs);  
@@ -43,10 +43,6 @@ public class Main {
         while (rows.hasNext()) {  
             HSSFRow row = (HSSFRow) rows.next();  
             //row 行的意思
-           // System.out.println("Row #" + row.getRowNum());  
-            // Iterate over each cell in the row and print out the cell"s  
-            // content  
-            
             Iterator cells = row.cellIterator(); 
           
             while (cells.hasNext()) {
@@ -56,8 +52,6 @@ public class Main {
             if(!cell.toString().equals("")&&!(cell.toString().trim().length()== 0))
             {
              //   System.out.println("cell = "+cell.getColumnIndex()+ " "+cell.toString());
-                
-                
                 if(cell.getColumnIndex()==7) {
                 	//人天数
                 	info[index][0]=cell.toString();
@@ -65,12 +59,9 @@ public class Main {
                 if(cell.getColumnIndex()==8){
                 	//开发人员信息
                 	info[index][1]=cell.toString();
-                	
                 }
-                
             }
             //row=7 本次排入人天数目
-            
             //row=8 开发人员
             //统计项目相关
             //row=2 项目
@@ -87,7 +78,6 @@ public class Main {
         index++;
        // System.out.println("项目总数："+sumProject);
 	}
-        
         int indexSum=0;
         Iterator isList = list.iterator();
         while(isList.hasNext()) {
@@ -109,10 +99,8 @@ public class Main {
         		}else {
         			map.put(info[i][1], Double.valueOf(info[i][0]));//如果map中不存在就存入
         		}
-        		
         	//	System.out.println(info[i][0]+" "+info[i][1]);
         	}
-        	
         }
         List<Entry<String, Double>> list1 = map.entrySet().stream()
         	      .sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue())) //降序
@@ -127,13 +115,6 @@ public class Main {
         		System.out.println(Math.round(entry.getValue())+" "+entry.getKey());
         	}
         }
-		/*
-		 * 
-		 * Iterator<Entry<String, Double>> it=map.entrySet().iterator();
-		 * while(it.hasNext()){ Entry<String, Double> entry=it.next();
-		 * System.out.println("key="+entry.getKey()+","+"value="+entry.getValue()); }
-		 */
-
 }
 }
 
